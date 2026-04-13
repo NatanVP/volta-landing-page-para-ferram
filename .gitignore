@@ -1,0 +1,26 @@
+# Dependências
+node_modules/
+
+# Banco de dados
+*.db
+*.sqlite
+*.sqlite3
+
+# Variáveis de ambiente
+.env
+.env.local
+.env.*.local
+
+# Arquivos internos do pipeline
+_step*.json
+planner_output.json
+linkedin_draft.txt
+
+# Logs
+*.log
+logs/
+/tmp/
+
+# Sistema
+.DS_Store
+Thumbs.db
