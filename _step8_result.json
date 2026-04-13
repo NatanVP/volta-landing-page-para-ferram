@@ -1,9 +1,0 @@
-{
-  "actions": [
-    {"type": "navigate", "url": "http://localhost:3000", "wait_ms": 2000},
-    {"type": "screenshot", "name": "hero_inicial", "description": "tela inicial com hero full-viewport e headline em destaque"},
-    {"type": "api_post", "endpoint": "/api/waitlist", "body": {"email": "dev@volta.dev", "source": "hero"}, "wait_ms": 1500},
-    {"type": "scroll", "y": 600, "wait_ms": 1000},
-    {"type": "screenshot", "name": "secao_features", "description": "grid de features 2x2 com ícones SVG âmbar"}
-  ]
-}
