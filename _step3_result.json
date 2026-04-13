@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "files": [
+    "server.js",
+    "database.js",
+    "package.json",
+    "routes/waitlist.js",
+    "middleware/error-handler.js",
+    ".env.example"
+  ]
+}

@@ -1,0 +1,342 @@
+/* ============================================================
+   Volta — Design System
+   ============================================================ */
+
+:root {
+  --cor-primaria: #FAFAFA;
+  --cor-acento: #F5A623;
+  --cor-fundo: #0A0A0A;
+  --cor-secundaria: #1A1A1A;
+  --cor-texto-muted: rgba(250, 250, 250, 0.55);
+  --cor-borda: rgba(250, 250, 250, 0.08);
+  --fonte-heading: 'Inter', sans-serif;
+  --fonte-body: 'Inter', sans-serif;
+  --raio-borda: 6px;
+  --max-width: 1100px;
+}
+
+/* ============================================================
+   Reset
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-primaria);
+  font-family: var(--fonte-body);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: var(--cor-fundo);
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(245, 166, 35, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero__badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cor-acento);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  border-radius: 100px;
+  padding: 5px 14px;
+  margin-bottom: 40px;
+}
+
+.hero__headline {
+  font-family: var(--fonte-heading);
+  font-size: clamp(56px, 8vw, 96px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.hero__headline .linha {
+  display: block;
+}
+
+.hero__headline .ponto {
+  color: var(--cor-acento);
+}
+
+.hero__subtitulo {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--cor-texto-muted);
+  margin-bottom: 48px;
+  max-width: 480px;
+  line-height: 1.5;
+}
+
+.hero__form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 520px;
+}
+
+.hero__form {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.hero__input {
+  flex: 1;
+  background-color: var(--cor-secundaria);
+  border: 1px solid rgba(250, 250, 250, 0.15);
+  color: var(--cor-primaria);
+  font-family: var(--fonte-body);
+  font-size: 15px;
+  padding: 14px 20px;
+  border-radius: var(--raio-borda);
+  outline: none;
+  transition: border-color 0.2s ease;
+  min-width: 0;
+}
+
+.hero__input::placeholder {
+  color: var(--cor-texto-muted);
+}
+
+.hero__input:focus {
+  border-color: rgba(250, 250, 250, 0.35);
+}
+
+.hero__btn {
+  background-color: var(--cor-acento);
+  color: var(--cor-fundo);
+  font-family: var(--fonte-body);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 28px;
+  border: none;
+  border-radius: var(--raio-borda);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+.hero__btn:hover {
+  opacity: 0.9;
+}
+
+.hero__btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.hero__mensagem {
+  font-size: 14px;
+  font-weight: 500;
+  min-height: 20px;
+  transition: opacity 0.2s ease;
+}
+
+.hero__mensagem--sucesso {
+  color: #5AF776;
+}
+
+.hero__mensagem--erro {
+  color: #FF5C5C;
+}
+
+.hero__mensagem--aviso {
+  color: var(--cor-acento);
+}
+
+.hero__contador {
+  font-size: 13px;
+  color: var(--cor-texto-muted);
+  min-height: 18px;
+}
+
+/* ============================================================
+   FEATURES
+   ============================================================ */
+
+.features {
+  background-color: var(--cor-fundo);
+  padding: 0;
+}
+
+.features__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background-color: var(--cor-fundo);
+  border-top: 1px solid var(--cor-borda);
+}
+
+.feature-card {
+  background-color: var(--cor-secundaria);
+  padding: 48px;
+  transition: background-color 0.2s ease;
+}
+
+.feature-card:hover {
+  background-color: #202020;
+}
+
+.feature-card__icone {
+  margin-bottom: 20px;
+  display: block;
+  line-height: 1;
+}
+
+.feature-card__titulo {
+  font-family: var(--fonte-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.feature-card__descricao {
+  font-size: 15px;
+  color: var(--cor-texto-muted);
+  line-height: 1.65;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.footer {
+  background-color: var(--cor-fundo);
+  border-top: 1px solid var(--cor-borda);
+  padding: 40px;
+}
+
+.footer__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: rgba(250, 250, 250, 0.4);
+  font-size: 14px;
+}
+
+.footer__logo {
+  font-family: var(--fonte-heading);
+  font-weight: 800;
+  font-size: 15px;
+  color: rgba(250, 250, 250, 0.5);
+  letter-spacing: -0.02em;
+}
+
+.footer__sep {
+  color: rgba(250, 250, 250, 0.2);
+}
+
+.footer__link {
+  color: rgba(250, 250, 250, 0.4);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer__link:hover {
+  color: rgba(250, 250, 250, 0.7);
+}
+
+/* ============================================================
+   Responsivo — telas < 768px
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 64px 24px;
+    align-items: flex-start;
+    padding-top: 100px;
+  }
+
+  .hero__headline {
+    font-size: clamp(44px, 13vw, 64px);
+  }
+
+  .hero__subtitulo {
+    font-size: 16px;
+  }
+
+  .hero__form {
+    flex-direction: column;
+  }
+
+  .hero__btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .features__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card {
+    padding: 36px 24px;
+  }
+
+  .footer {
+    padding: 32px 24px;
+  }
+}

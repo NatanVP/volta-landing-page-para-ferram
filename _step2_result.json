@@ -1,0 +1,73 @@
+{
+  "project_description": "Volta é uma landing page de alto impacto visual para captura de leads de uma ferramenta de versionamento e comparação de prompts. O projeto conta com um backend minimalista em Express + SQLite responsável por registrar emails na waitlist e mapear o interesse dos usuários por features específicas. O frontend é uma single page com design editorial escuro inspirado em ferramentas de produtividade premium, com hero full-viewport, seção de features em grid e footer minimalista. O objetivo principal é converter visitantes em leads qualificados para o lançamento da ferramenta.",
+  "db_schema": {
+    "tables": [
+      {
+        "name": "waitlist",
+        "columns": [
+          { "name": "id", "type": "INTEGER PRIMARY KEY AUTOINCREMENT" },
+          { "name": "email", "type": "TEXT NOT NULL UNIQUE" },
+          { "name": "source", "type": "TEXT DEFAULT 'hero'" },
+          { "name": "criado_em", "type": "DATETIME DEFAULT CURRENT_TIMESTAMP" }
+        ]
+      },
+      {
+        "name": "interesse_features",
+        "columns": [
+          { "name": "id", "type": "INTEGER PRIMARY KEY AUTOINCREMENT" },
+          { "name": "email", "type": "TEXT NOT NULL" },
+          { "name": "feature_slug", "type": "TEXT NOT NULL" },
+          { "name": "criado_em", "type": "DATETIME DEFAULT CURRENT_TIMESTAMP" }
+        ]
+      }
+    ]
+  },
+  "folder_structure": "volta-landing-page-para-ferram/\n├── server.js\n├── database.js\n├── package.json\n├── .env.example\n├── routes/\n│   └── waitlist.js\n├── middleware/\n│   └── error-handler.js\n└── public/\n    ├── index.html\n    ├── style.css\n    └── app.js",
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/api/waitlist",
+      "description": "Registra um email na waitlist. Body: { email: string, source?: string }. Retorna { sucesso: true, mensagem: string } ou erro 409 se email duplicado."
+    },
+    {
+      "method": "POST",
+      "path": "/api/waitlist/interesse",
+      "description": "Registra interesse de um email em uma feature específica. Body: { email: string, feature_slug: string }. Retorna { sucesso: true }."
+    },
+    {
+      "method": "GET",
+      "path": "/api/waitlist/total",
+      "description": "Retorna o total de emails cadastrados na waitlist. Resposta: { total: number }."
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "description": "Serve o arquivo index.html da landing page."
+    }
+  ],
+  "run_instructions": "npm install && npm start",
+  "screenshot_requirements": [
+    "tela inicial com hero full-viewport e headline em destaque",
+    "seção de features com grid 2x2 e ícones SVG",
+    "formulário de waitlist preenchido com email de exemplo"
+  ],
+  "design_direction": {
+    "referencia": "https://www.siteinspire.com/websites/volta-studio",
+    "estilo": "Editorial escuro com tipografia display oversized, mínimo de elementos, máximo de impacto. Estética de ferramenta de produtividade premium no estilo Linear e Vercel — espaço negativo generoso, hierarquia tipográfica agressiva, sem ornamentos desnecessários.",
+    "paleta": ["#0A0A0A", "#FAFAFA", "#F5A623"],
+    "tipografia": "Inter (Google Fonts) para todos os textos. Headings com font-weight 800-900 e tamanho entre 64px e 96px no hero. Body com font-weight 400, tamanho 16-18px, cor #FAFAFA com opacidade 0.7 para textos secundários.",
+    "layout": "Hero full-viewport com headline em 3 linhas grandes + parágrafo curto + campo de email + botão CTA único. Seção de features em grid 2x2 com ícone SVG âmbar + título bold + 2 linhas de descrição. Footer minimalista com logo e links mínimos. Rolagem vertical suave, sem scroll snap.",
+    "css_vars": {
+      "--cor-primaria": "#FAFAFA",
+      "--cor-acento": "#F5A623",
+      "--cor-fundo": "#0A0A0A",
+      "--cor-secundaria": "#1A1A1A",
+      "--cor-texto-muted": "rgba(250, 250, 250, 0.55)",
+      "--cor-borda": "rgba(250, 250, 250, 0.08)",
+      "--fonte-heading": "'Inter', sans-serif",
+      "--fonte-body": "'Inter', sans-serif",
+      "--raio-borda": "6px",
+      "--max-width": "1100px"
+    }
+  }
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volta — Versionamento de Prompts</title>
+  <meta name="description" content="Versione, teste e compare seus prompts como código. A ferramenta de produtividade para engenheiros de IA." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__inner">
+      <div class="hero__badge">Beta em breve</div>
+      <h1 class="hero__headline">
+        <span class="linha">Versione<span class="ponto">.</span></span>
+        <span class="linha">Teste<span class="ponto">.</span></span>
+        <span class="linha">Compare<span class="ponto">.</span></span>
+      </h1>
+      <p class="hero__subtitulo">Prompts são código. Trate-os como tal.</p>
+      <div class="hero__form-wrapper">
+        <form class="hero__form" id="form-waitlist" novalidate>
+          <input
+            type="email"
+            id="input-email"
+            class="hero__input"
+            placeholder="seu@email.com"
+            autocomplete="email"
+            required
+          />
+          <button type="submit" class="hero__btn" id="btn-submit">
+            Entrar na waitlist
+          </button>
+        </form>
+        <p class="hero__mensagem" id="mensagem-form" aria-live="polite"></p>
+        <p class="hero__contador" id="contador-waitlist" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="features__inner">
+      <div class="features__grid">
+
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-card__icone">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="8" cy="8" r="3" stroke="#F5A623" stroke-width="2"/>
+              <circle cx="8" cy="24" r="3" stroke="#F5A623" stroke-width="2"/>
+              <circle cx="24" cy="16" r="3" stroke="#F5A623" stroke-width="2"/>
+              <line x1="8" y1="11" x2="8" y2="21" stroke="#F5A623" stroke-width="2"/>
+              <path d="M8 11 C8 14 12 13 16 13 C20 13 21 14 21 16" stroke="#F5A623" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__titulo">Versionamento Git-style</h3>
+          <p class="feature-card__descricao">Controle completo do histórico de cada prompt.<br>Navegue, compare e reverta com precisão total.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-card__icone">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="3" y="14" width="12" height="15" rx="2" stroke="#F5A623" stroke-width="2"/>
+              <rect x="17" y="7" width="12" height="22" rx="2" stroke="#F5A623" stroke-width="2"/>
+              <line x1="9" y1="3" x2="9" y2="14" stroke="#F5A623" stroke-width="2" stroke-dasharray="2 2"/>
+              <line x1="23" y1="3" x2="23" y2="7" stroke="#F5A623" stroke-width="2" stroke-dasharray="2 2"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__titulo">Testes A/B Instantâneos</h3>
+          <p class="feature-card__descricao">Compare variações de prompts com métricas reais.<br>Descubra o que performa melhor antes de escalar.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-card__icone">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="16" cy="16" r="13" stroke="#F5A623" stroke-width="2"/>
+              <path d="M16 9 L16 16 L21 16" stroke="#F5A623" stroke-width="2" stroke-linecap="round"/>
+              <path d="M10 22 L13 19" stroke="#F5A623" stroke-width="2" stroke-linecap="round"/>
+              <path d="M22 22 L19 19" stroke="#F5A623" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__titulo">Análise de Custos</h3>
+          <p class="feature-card__descricao">Visualize o gasto real por modelo e por versão.<br>Otimize antes que a conta chegue no final do mês.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-card__icone">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="2" y="10" width="8" height="8" rx="2" stroke="#F5A623" stroke-width="2"/>
+              <rect x="22" y="4" width="8" height="8" rx="2" stroke="#F5A623" stroke-width="2"/>
+              <rect x="22" y="20" width="8" height="8" rx="2" stroke="#F5A623" stroke-width="2"/>
+              <line x1="10" y1="14" x2="22" y2="8" stroke="#F5A623" stroke-width="2"/>
+              <line x1="10" y1="14" x2="22" y2="24" stroke="#F5A623" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__titulo">Integração com APIs</h3>
+          <p class="feature-card__descricao">Conecte OpenAI, Anthropic e Gemini em segundos.<br>Um painel único para todos os seus modelos.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__logo">Volta</span>
+      <span class="footer__sep">·</span>
+      <span class="footer__copy">© 2026</span>
+      <span class="footer__sep">·</span>
+      <a href="#" class="footer__link">Política de privacidade</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
